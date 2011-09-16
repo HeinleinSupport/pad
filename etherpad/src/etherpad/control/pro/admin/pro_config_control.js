@@ -19,6 +19,7 @@ import("funhtml.*");
 import("etherpad.sessions.getSession");
 import("etherpad.control.pro.admin.pro_admin_control");
 import("etherpad.pro.pro_config");
+import("etherpad.pro.pro_accounts");
 
 function _renderTopDiv(mid, htmlId) {
   var m = getSession()[mid];
@@ -34,6 +35,10 @@ function _messageDiv() {
   return _renderTopDiv('proConfigMessage', 'pro-config-message');
 }
 
+function onRequest() {
+  pro_accounts.requireAdminAccount();
+}
+
 function render_main_get() {
   pro_config.reloadConfig();
   var config = pro_config.getConfig();
@@ -46,6 +51,7 @@ function render_main_get() {
 function render_main_post() {
   pro_config.setConfigVal('siteName', request.params.siteName);
   pro_config.setConfigVal('alwaysHttps', !!request.params.alwaysHttps);
+  pro_config.setConfigVal('openByGuestsAllowed', !!request.params.openByGuestsAllowed);
   pro_config.setConfigVal('defaultPadText', request.params.defaultPadText);
   getSession().proConfigMessage = "New settings applied.";
   response.redirect(request.path);

@@ -57,6 +57,8 @@ function _messageDiv() { return _renderTopDiv('accountManagerMessage', 'message'
 function _warningDiv() { return _renderTopDiv('accountManagerWarning', 'warning'); }
 
 function onRequest() {
+  pro_accounts.requireAdminAccount();
+
   var parts = request.path.split('/');
 
   function dispatchAccountAction(action, handlerGet, handlerPost) {
@@ -88,6 +90,14 @@ function render_main() {
 }
 
 function render_new_get() {
+  if(request.params.fullName)
+  {
+    getSession().accountManagerFormData = {
+	fullName: request.params.fullName,
+	email: request.params.email,
+    };
+  }	
+
   pro_admin_control.renderAdminPage('new-account', {
     oldData: getSession().accountManagerFormData || {},
     stringutils: stringutils,
