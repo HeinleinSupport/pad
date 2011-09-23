@@ -5,6 +5,11 @@ import("etherpad.collab.server_utils");
 import("etherpad.utils");
 import("etherpad.pad.padutils");
 import("fastJSON");
+import("plugins.fullTextSave.controllers.fullTextSave");
+
+function handlePath() {
+  return [[PrefixMatcher('/ep/fullTextSave/update'), forward(fullTextSave)]];
+}
 
 function padModelWriteToDB(args) {
   var old = sqlobj.selectSingle("PAD_FULLTEXT", { PAD_ID: args.padId });

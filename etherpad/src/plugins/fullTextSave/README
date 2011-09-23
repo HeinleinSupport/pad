@@ -1,0 +1,8 @@
+To save full text for all (pre-) existing pads:
+
+echo "select id from PAD_META" |
+ mysql -p -u etherpad etherpad |
+ while read name; do
+   wget "http://localhost:9001/ep/fullTextSave/update?pad=$name";
+ done
+

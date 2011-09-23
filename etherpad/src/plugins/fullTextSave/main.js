@@ -4,8 +4,9 @@ import("sqlbase.sqlobj");
 import("sqlbase.sqlcommon");
 
 function fullTextSaveInit() {
- this.hooks = ['padModelWriteToDB'];
+ this.hooks = ['handlePath', 'padModelWriteToDB'];
  this.description = 'Saves a full text copy of the latest version of a pad for external search tools (e.g. lucene)';
+ this.handlePath = hooks.handlePath;
  this.padModelWriteToDB = hooks.padModelWriteToDB;
 
  this.install = install;
