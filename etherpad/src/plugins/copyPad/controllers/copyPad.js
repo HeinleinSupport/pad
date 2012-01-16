@@ -69,7 +69,7 @@ function createCopy(localPadId, pad, clonePadId, cloneRevNum) {
   }
  
   var cloneData = model.accessPadGlobal(usePadId, function(pad) {
-    if (cloneRevNum == undefined)
+    if (cloneRevNum == undefined || cloneRevNum == 'undefined' )
       cloneRevNum = pad.getHeadRevisionNumber();
 
     return {

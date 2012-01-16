@@ -1,0 +1,19 @@
+<%
+  if (request.path.indexOf('/ep/pad/view') >= 0) {
+    padId = request.path.split('/ep/pad/view/', 2)[1].split('/rev.', 2);
+    padId = padId[0].replace('/latest','');
+  } else {
+    padId = request.path.split("/")[1];
+  }
+    params = ["old=" + padId];
+%>
+<td>&nbsp;&nbsp;</td>
+<td><img src="/static/img/jun09/pad/editbar_groupleft.gif" width="2" height="24"></td>
+<td class="editbarbutton editbargroupsfirst">
+  <a id="copy_pad_button" onClick="function cloneRevision() { pos = global.BroadcastSlider.getSliderPosition(); window.open('/ep/copyPad?<%= params %>&old_rev=' + pos); }; cloneRevision();" title="Copy pad"><img src="/static/html/plugins/copyPad/editbar_copy.gif"></a>
+</td>
+<td class="editbarbutton">
+  <a href="/ep/search?linksto=<%= padId %>" title="Find links to this pad (including copies of this pad)"><img src="/static/html/plugins/copyPad/editbar_find_links.gif"></a>
+</td>
+<td><img src="/static/img/jun09/pad/editbar_groupright.gif" width="2" height="24"></td>
+<td>&nbsp;&nbsp;</td>
