@@ -12,3 +12,8 @@ function handlePath() {
 function editBarItemsRightPad(arg) {
   return arg.template.include('copyPadEditbarButtons.ejs', undefined, ['copyPad']);
 }
+
+
+function editBarItemsRightPadView(arg) {
+  return arg.template.include('copyPadEditbarButtonsView.ejs', undefined, ['copyPad']);
+}

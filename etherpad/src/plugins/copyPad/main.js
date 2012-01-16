@@ -6,7 +6,7 @@ function copyPadInit() {
  this.description = 'Lets users copy pads';
  this.handlePath = hooks.handlePath;
  this.editBarItemsRightPad = hooks.editBarItemsRightPad;
- this.editBarItemsRightPadView = hooks.editBarItemsRightPad;
+ this.editBarItemsRightPadView = hooks.editBarItemsRightPadView;
  this.install = install;
  this.uninstall = uninstall;
 }
