@@ -1,3 +1,9 @@
+etherpad (1.1wheezy) wheezy; urgency=low
+
+  * New release for Debian wheezy
+
+ -- Robert Sander <r.sander@heinlein-support.de>  Sat, 05 Oct 2013 14:57:49 +0200
+
 etherpad (1.1) karmic; urgency=low
 
   * New release
