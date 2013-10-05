@@ -10,7 +10,7 @@ Homepage: http://github.com/ether/pad
 
 Package: etherpad
 Architecture: all
-Depends: ${misc:Depends}, java-jdk, mysql-client, libmysql-java, scala (>= 2.7), mysql-server, m4
+Depends: ${misc:Depends}, java-jdk, mysql-client, libmysql-java, scala (>= 2.7), mysql-server, m4, libreoffice | openoffice.org
 Pre-Depends: dbconfig-common, debconf, adduser
 Recommends: perl, python-uno
 Description:  A web-based word processor that allows people to work
